@@ -32,6 +32,9 @@ return {
 
       -- ... and there is more!
       --  Check out: https://github.com/nvim-mini/mini.nvim
+
+      -- some nice icons used in which-key
+      require('mini.icons').setup()
     end,
   },
 }
