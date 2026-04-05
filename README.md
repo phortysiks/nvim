@@ -5,24 +5,11 @@ It is made modular to keep it more organised.
 It makes use of `vim.pack` as the plugin manager and therefore
 requires neovim 0.12.0 as a minimum.
 
-## Introduction
-
-A starting point for Neovim that is:
-
-* Small
-* Single-file
-* Completely Documented
-
-**NOT** a Neovim distribution, but instead a starting point for your configuration.
-
 ## Installation
 
 ### Install Neovim
 
-Kickstart.nvim targets *only* the latest
-['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest
-['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim.
-If you are experiencing issues, please make sure you have the latest versions.
+[Install Neovim](https://neovim.io/doc/install/)
 
 ### Install External Dependencies
 
