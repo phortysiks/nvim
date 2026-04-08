@@ -1,6 +1,6 @@
 -- Autoformatter
 
-require("conform").setup({
+require('conform').setup({
 	notify_on_error = false,
 	format_on_save = function(bufnr)
 		local disable_filetypes = { c = true, cpp = true }
@@ -9,15 +9,16 @@ require("conform").setup({
 		else
 			return {
 				timeout_ms = 500,
-				lsp_format = "fallback",
+				lsp_format = 'fallback',
 			}
 		end
 	end,
 	formatters_by_ft = {
-		lua = { "stylua" },
+		lua = { 'stylua' },
+		markdown = { 'mdslw' },
 	},
 })
 
-vim.keymap.set("", "<leader>f", function()
-	require("conform").format({ async = true, lsp_format = "fallback" })
-end, { desc = "[F]ormat buffer" })
+vim.keymap.set('', '<leader>cf', function()
+	require('conform').format({ async = true, lsp_format = 'fallback' })
+end, { desc = '[C]ode format' })
