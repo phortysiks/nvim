@@ -25,6 +25,7 @@ vim.pack.add {
   'https://github.com/j-hui/fidget.nvim',
 
   -- Autocompletion
+  { src = 'https://github.com/saghen/blink.lib' },
   { src = 'https://github.com/saghen/blink.cmp' },
   { src = 'https://github.com/L3MON4D3/LuaSnip' },
 
