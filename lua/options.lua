@@ -12,6 +12,9 @@ vim.o.expandtab = true
 -- Remove ~ for lines beyond the end of the file
 vim.opt.fillchars = { eob = ' ' }
 
+-- Border for windowed buffers
+vim.o.winborder = 'rounded'
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
