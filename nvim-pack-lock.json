@@ -24,6 +24,10 @@
       "rev": "4ed47e8c4c66c921dc1d6643977e0526e1f44396",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "gruvbox-material": {
+      "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
+      "src": "https://github.com/sainnhe/gruvbox-material"
+    },
     "guess-indent.nvim": {
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/NMAC427/guess-indent.nvim"

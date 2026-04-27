@@ -1,18 +1,19 @@
 -- Collection of QoL upgrades for Neovim
 
-require('snacks').setup {
+require('snacks').setup({
   bigfile = { enabled = true },
   dashboard = {
     enabled = true,
     preset = {
+        -- stylua: ignore
       keys = {
-        { icon = '', key = 'n', desc = 'New File', action = function() vim.cmd 'enew' end },
+        { icon = '', key = 'n', desc = 'New File', action = function() vim.cmd('enew') end },
         { icon = '', key = 'r', desc = 'Recent Files', action = function() Snacks.picker.recent() end },
         { icon = '󰈞', key = 'f', desc = 'Find File', action = function() Snacks.picker.files() end },
         { icon = '', key = 'p', desc = 'Projects', action = function() Snacks.picker.projects() end },
-        { icon = '', key = 'c', desc = 'Config', action = function() Snacks.picker.files { cwd = vim.fn.stdpath 'config' } end },
+        { icon = '', key = 'c', desc = 'Config', action = function() Snacks.picker.files({ cwd = vim.fn.stdpath('config') }) end },
         { icon = '', key = 'u', desc = 'Update Plugins', action = function() vim.pack.update() end },
-        { icon = '󰈆', key = 'q', desc = 'Quit', action = function() vim.cmd 'qa' end },
+        { icon = '󰈆', key = 'q', desc = 'Quit', action = function() vim.cmd('qa') end },
       },
     },
     sections = {
@@ -63,9 +64,10 @@ require('snacks').setup {
   quickfile = { enabled = true },
   scope = { enabled = true },
   statuscolumn = { enabled = true },
-}
+})
 
 -- Buffers / Files
+-- stylua: ignore start
 vim.keymap.set('n', '<leader>,', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
 vim.keymap.set('n', '<leader>/', function() Snacks.picker.grep() end, { desc = 'Grep' })
 vim.keymap.set('n', '<leader>:', function() Snacks.picker.command_history() end, { desc = 'Command History' })
@@ -74,18 +76,18 @@ vim.keymap.set('n', '<leader>n', function() Snacks.picker.notifications() end, {
 
 -- Find
 vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
-vim.keymap.set('n', '<leader>fB', function() Snacks.picker.buffers { hidden = true, nofile = true } end, { desc = 'Buffers (all)' })
-vim.keymap.set('n', '<leader>fc', function() Snacks.picker.files { cwd = vim.fn.stdpath 'config' } end, { desc = 'Find Config File' })
+vim.keymap.set('n', '<leader>fB', function() Snacks.picker.buffers({ hidden = true, nofile = true }) end, { desc = 'Buffers (all)' })
+vim.keymap.set('n', '<leader>fc', function() Snacks.picker.files({ cwd = vim.fn.stdpath('config') }) end, { desc = 'Find Config File' })
 vim.keymap.set('n', '<leader>ff', function() Snacks.picker.files() end, { desc = 'Find Files' })
-vim.keymap.set('n', '<leader>fF', function() Snacks.picker.files { cwd = vim.uv.cwd() } end, { desc = 'Find Files (cwd)' })
+vim.keymap.set('n', '<leader>fF', function() Snacks.picker.files({ cwd = vim.uv.cwd() }) end, { desc = 'Find Files (cwd)' })
 vim.keymap.set('n', '<leader>fg', function() Snacks.picker.git_files() end, { desc = 'Find Files (git)' })
 vim.keymap.set('n', '<leader>fr', function() Snacks.picker.recent() end, { desc = 'Recent' })
-vim.keymap.set('n', '<leader>fR', function() Snacks.picker.recent { filter = { cwd = true } } end, { desc = 'Recent (cwd)' })
+vim.keymap.set('n', '<leader>fR', function() Snacks.picker.recent({ filter = { cwd = true } }) end, { desc = 'Recent (cwd)' })
 vim.keymap.set('n', '<leader>fp', function() Snacks.picker.projects() end, { desc = 'Projects' })
 
 -- Git
 vim.keymap.set('n', '<leader>gd', function() Snacks.picker.git_diff() end, { desc = 'Git Diff (hunks)' })
-vim.keymap.set('n', '<leader>gD', function() Snacks.picker.git_diff { base = 'origin', group = true } end, { desc = 'Git Diff (origin)' })
+vim.keymap.set('n', '<leader>gD', function() Snacks.picker.git_diff({ base = 'origin', group = true }) end, { desc = 'Git Diff (origin)' })
 vim.keymap.set('n', '<leader>gs', function() Snacks.picker.git_status() end, { desc = 'Git Status' })
 vim.keymap.set('n', '<leader>gS', function() Snacks.picker.git_stash() end, { desc = 'Git Stash' })
 
@@ -93,11 +95,11 @@ vim.keymap.set('n', '<leader>gS', function() Snacks.picker.git_stash() end, { de
 vim.keymap.set('n', '<leader>sb', function() Snacks.picker.lines() end, { desc = 'Buffer Lines' })
 vim.keymap.set('n', '<leader>sB', function() Snacks.picker.grep_buffers() end, { desc = 'Grep Open Buffers' })
 vim.keymap.set('n', '<leader>sg', function() Snacks.picker.grep() end, { desc = 'Grep' })
-vim.keymap.set('n', '<leader>sG', function() Snacks.picker.grep { cwd = vim.uv.cwd() } end, { desc = 'Grep (cwd)' })
+vim.keymap.set('n', '<leader>sG', function() Snacks.picker.grep({ cwd = vim.uv.cwd() }) end, { desc = 'Grep (cwd)' })
 vim.keymap.set('n', '<leader>sw', function() Snacks.picker.grep_word() end, { desc = 'Word (Root Dir)' })
-vim.keymap.set('n', '<leader>sW', function() Snacks.picker.grep_word { cwd = vim.uv.cwd() } end, { desc = 'Word (cwd)' })
+vim.keymap.set('n', '<leader>sW', function() Snacks.picker.grep_word({ cwd = vim.uv.cwd() }) end, { desc = 'Word (cwd)' })
 vim.keymap.set({ 'n', 'x' }, '<leader>sw', function() Snacks.picker.grep_word() end, { desc = 'Word (Root Dir)' })
-vim.keymap.set({ 'n', 'x' }, '<leader>sW', function() Snacks.picker.grep_word { cwd = vim.uv.cwd() } end, { desc = 'Word (cwd)' })
+vim.keymap.set({ 'n', 'x' }, '<leader>sW', function() Snacks.picker.grep_word({ cwd = vim.uv.cwd() }) end, { desc = 'Word (cwd)' })
 
 -- Search
 vim.keymap.set('n', '<leader>s"', function() Snacks.picker.registers() end, { desc = 'Registers' })
